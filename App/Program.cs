@@ -16,8 +16,8 @@ internal static class Program
         ApplicationConfiguration.Initialize();
 
         var host = CreateHostBuilder().Build();
-        //host.RunMigrationsAsync().GetAwaiter();
-        //host.SeedInitialData().GetAwaiter();
+        host.RunMigrationsAsync().GetAwaiter();
+        host.SeedInitialData().GetAwaiter();
         ServiceProvider = host.Services;
 
         Application.Run(ServiceProvider.GetRequiredService<EmployeeView>());

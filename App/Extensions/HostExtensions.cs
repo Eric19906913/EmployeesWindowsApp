@@ -28,6 +28,12 @@ public static class HostExtensions
         {
             var repository = scope.ServiceProvider.GetRequiredService<IEmployeeRepository>();
 
+            // If there is employees seeded don't seed them again.
+            if ((await repository.GetAllEmployeesAsync()).Any())
+            {
+                return;
+            }
+
             await repository.CreateEmployeeAsync(
                 new Employee()
                 {
