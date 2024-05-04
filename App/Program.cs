@@ -20,7 +20,7 @@ internal static class Program
         host.SeedInitialData().GetAwaiter();
         ServiceProvider = host.Services;
 
-        Application.Run(ServiceProvider.GetRequiredService<Form1>());
+        Application.Run(ServiceProvider.GetRequiredService<EmployeeView>());
     }
 
     static IHostBuilder CreateHostBuilder()

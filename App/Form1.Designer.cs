@@ -1,6 +1,6 @@
 ﻿namespace TPFinalHaasEric
 {
-    partial class Form1
+    partial class EmployeeView
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,68 +28,129 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            textBox1 = new TextBox();
-            button4 = new Button();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dNIDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            isMarriedDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
+            ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            salaryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            employeeDtoBindingSource = new BindingSource(components);
+            btnAddEmployee = new Button();
+            btnEditEmployee = new Button();
+            btnDeleteEmployee = new Button();
+            txtSearchEmployee = new TextBox();
+            btnSearchEmployee = new Button();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)employeeDtoBindingSource).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, dNIDataGridViewTextBoxColumn, isMarriedDataGridViewCheckBoxColumn, ageDataGridViewTextBoxColumn, salaryDataGridViewTextBoxColumn });
+            dataGridView1.DataSource = employeeDtoBindingSource;
             dataGridView1.Location = new Point(41, 53);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(701, 339);
             dataGridView1.TabIndex = 0;
             // 
-            // button1
+            // idDataGridViewTextBoxColumn
             // 
-            button1.Location = new Point(41, 398);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 1;
-            button1.Text = "Agregar";
-            button1.UseVisualStyleBackColor = true;
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.Visible = false;
             // 
-            // button2
+            // fullNameDataGridViewTextBoxColumn
             // 
-            button2.Location = new Point(138, 398);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 2;
-            button2.Text = "Modificar";
-            button2.UseVisualStyleBackColor = true;
+            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            fullNameDataGridViewTextBoxColumn.HeaderText = "Nombre completo";
+            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            fullNameDataGridViewTextBoxColumn.Width = 150;
             // 
-            // button3
+            // dNIDataGridViewTextBoxColumn
             // 
-            button3.Location = new Point(243, 398);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 3;
-            button3.Text = "Eliminar";
-            button3.UseVisualStyleBackColor = true;
+            dNIDataGridViewTextBoxColumn.DataPropertyName = "DNI";
+            dNIDataGridViewTextBoxColumn.HeaderText = "DNI";
+            dNIDataGridViewTextBoxColumn.Name = "dNIDataGridViewTextBoxColumn";
+            dNIDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // textBox1
+            // isMarriedDataGridViewCheckBoxColumn
             // 
-            textBox1.Location = new Point(90, 24);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(188, 23);
-            textBox1.TabIndex = 4;
+            isMarriedDataGridViewCheckBoxColumn.DataPropertyName = "IsMarried";
+            isMarriedDataGridViewCheckBoxColumn.HeaderText = "Casado";
+            isMarriedDataGridViewCheckBoxColumn.Name = "isMarriedDataGridViewCheckBoxColumn";
+            isMarriedDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
-            // button4
+            // ageDataGridViewTextBoxColumn
             // 
-            button4.Location = new Point(284, 24);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 5;
-            button4.Text = "Buscar";
-            button4.UseVisualStyleBackColor = true;
+            ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            ageDataGridViewTextBoxColumn.HeaderText = "Edad";
+            ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            ageDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // salaryDataGridViewTextBoxColumn
+            // 
+            salaryDataGridViewTextBoxColumn.DataPropertyName = "Salary";
+            salaryDataGridViewTextBoxColumn.HeaderText = "Salario";
+            salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
+            salaryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // employeeDtoBindingSource
+            // 
+            employeeDtoBindingSource.DataSource = typeof(EmployeeDto);
+            // 
+            // btnAddEmployee
+            // 
+            btnAddEmployee.Location = new Point(41, 398);
+            btnAddEmployee.Name = "btnAddEmployee";
+            btnAddEmployee.Size = new Size(75, 23);
+            btnAddEmployee.TabIndex = 1;
+            btnAddEmployee.Text = "Agregar";
+            btnAddEmployee.UseVisualStyleBackColor = true;
+            // 
+            // btnEditEmployee
+            // 
+            btnEditEmployee.Location = new Point(138, 398);
+            btnEditEmployee.Name = "btnEditEmployee";
+            btnEditEmployee.Size = new Size(75, 23);
+            btnEditEmployee.TabIndex = 2;
+            btnEditEmployee.Text = "Modificar";
+            btnEditEmployee.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteEmployee
+            // 
+            btnDeleteEmployee.Location = new Point(235, 398);
+            btnDeleteEmployee.Name = "btnDeleteEmployee";
+            btnDeleteEmployee.Size = new Size(75, 23);
+            btnDeleteEmployee.TabIndex = 3;
+            btnDeleteEmployee.Text = "Eliminar";
+            btnDeleteEmployee.UseVisualStyleBackColor = true;
+            btnDeleteEmployee.Click += btnDeleteEmployee_Click;
+            // 
+            // txtSearchEmployee
+            // 
+            txtSearchEmployee.Location = new Point(90, 24);
+            txtSearchEmployee.Name = "txtSearchEmployee";
+            txtSearchEmployee.Size = new Size(188, 23);
+            txtSearchEmployee.TabIndex = 4;
+            // 
+            // btnSearchEmployee
+            // 
+            btnSearchEmployee.Location = new Point(284, 24);
+            btnSearchEmployee.Name = "btnSearchEmployee";
+            btnSearchEmployee.Size = new Size(75, 23);
+            btnSearchEmployee.TabIndex = 5;
+            btnSearchEmployee.Text = "Buscar";
+            btnSearchEmployee.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -100,21 +161,23 @@
             label1.TabIndex = 6;
             label1.Text = "Filtro";
             // 
-            // Form1
+            // EmployeeView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
-            Controls.Add(button4);
-            Controls.Add(textBox1);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnSearchEmployee);
+            Controls.Add(txtSearchEmployee);
+            Controls.Add(btnDeleteEmployee);
+            Controls.Add(btnEditEmployee);
+            Controls.Add(btnAddEmployee);
             Controls.Add(dataGridView1);
-            Name = "Form1";
-            Text = "TpFinalHaasEric";
+            Name = "EmployeeView";
+            Text = "Control de empleados";
+            Load += EmployeeView_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)employeeDtoBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,11 +185,18 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private TextBox textBox1;
-        private Button button4;
+        private Button btnAddEmployee;
+        private Button btnEditEmployee;
+        private Button btnDeleteEmployee;
+        private TextBox txtSearchEmployee;
+        private Button btnSearchEmployee;
         private Label label1;
+        private BindingSource employeeDtoBindingSource;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dNIDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn isMarriedDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
     }
 }
