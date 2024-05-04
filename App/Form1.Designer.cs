@@ -1,6 +1,6 @@
 ﻿namespace TPFinalHaasEric
 {
-    partial class Form1
+    partial class EmployeeView
     {
         /// <summary>
         ///  Required designer variable.
@@ -100,7 +100,7 @@
             label1.TabIndex = 6;
             label1.Text = "Filtro";
             // 
-            // Form1
+            // EmployeeView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -112,8 +112,8 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
-            Name = "Form1";
-            Text = "TpFinalHaasEric";
+            Name = "EmployeeView";
+            Text = "Control de empleados";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

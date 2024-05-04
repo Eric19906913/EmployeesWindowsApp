@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TPFinalHaasEric.Services;
 
 namespace TPFinalHaasEric.Extensions;
 
@@ -18,7 +19,10 @@ public static class HostBuilderExtensions
         // to do it in Program.
         builder.ConfigureServices(services => 
         {
-            services.AddTransient<Form1>();
+            services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddAutoMapper(opts => opts.AddProfile<EmployeeProfile>());
+            services.AddTransient<EmployeeView>();
             services.AddDbContext<AppDbContext>(
                 opts => opts.UseSqlServer(@"Server=(LocalDb)\MSSQLLocalDB;Database=TpFinalHaasEric;Trusted_Connection=True;MultipleActiveResultSets=true"));
         });

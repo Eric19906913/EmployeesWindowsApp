@@ -26,9 +26,9 @@ public static class HostExtensions
     {
         using (var scope = host.Services.CreateScope())
         {
-            var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            var repository = scope.ServiceProvider.GetRequiredService<IEmployeeRepository>();
 
-            await dbContext.Employees.AddAsync(
+            await repository.CreateEmployeeAsync(
                 new Employee()
                 {
                     FullName = "Maximo",
@@ -37,8 +37,6 @@ public static class HostExtensions
                     IsMarried = true,
                     Salary = 12,
                 });
-
-            await dbContext.SaveChangesAsync();
         }
     }
 }
