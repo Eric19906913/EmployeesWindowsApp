@@ -1,3 +1,4 @@
+using TPFinalHaasEric.Forms;
 using TPFinalHaasEric.Services;
 
 namespace TPFinalHaasEric;
@@ -5,25 +6,25 @@ namespace TPFinalHaasEric;
 public partial class EmployeeView : Form
 {
     private readonly IEmployeeService employeeService;
+    private readonly UserDetails userDetailsForm;
 
-    public EmployeeView(IEmployeeService employeeService)
+    public EmployeeView(IEmployeeService employeeService, UserDetails userDetailsForm)
     {
         this.employeeService = employeeService;
+        this.userDetailsForm = userDetailsForm;
 
         InitializeComponent();
         this.ConfigureDataGrid();
     }
 
     /// <summary>
-    /// REMARKS: This is VERY BAD practice but I wanted to all my code works with async/await.
+    /// REMARKS: Using async/void is VERY BAD practice but I wanted to all my code works with async/await.
     /// </summary>
     /// <param name="sender">The sender.</param>
     /// <param name="e">The events.</param>
-    private async void EmployeeView_Load(object sender, EventArgs e)
+    private void EmployeeView_Load(object sender, EventArgs e)
     {
-        var employees = await this.employeeService.GetAllEmployeesAsync();
-
-        this.dataGridView1.DataSource = employees;
+        this.LoadDataGridDataSource();
     }
 
     private void btnDeleteEmployee_Click(object sender, EventArgs e)
@@ -38,24 +39,20 @@ public partial class EmployeeView : Form
         var result = MessageBox.Show(
             $"Esta seguro que desea eliminar el empleado {employee?.FullName}?.",
             "Eliminar empleado",
-            MessageBoxButtons.YesNo);
+            MessageBoxButtons.OKCancel);
 
-        if (result == DialogResult.Yes)
+        if (result == DialogResult.OK)
         {
             this.employeeService.DeleteEmployee(employee!.Id);
-            this.dataGridView1.Refresh();
 
             MessageBox.Show("Empleado borrado exitosamente.");
-        }
-        else
-        {
-            MessageBox.Show("no borras al loquito.");
+            this.LoadDataGridDataSource();
         }
     }
 
-    private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+    private void btnAddEmployee_Click(object sender, EventArgs e)
     {
-        this.btnDeleteEmployee.Enabled = true;
+        this.userDetailsForm.Show(this);
     }
 
     private void ConfigureDataGrid()
@@ -63,5 +60,8 @@ public partial class EmployeeView : Form
         this.dataGridView1.ShowEditingIcon = false;
     }
 
-    
+    private async void LoadDataGridDataSource()
+    {
+        this.dataGridView1.DataSource = await this.employeeService.GetAllEmployeesAsync();
+    }
 }

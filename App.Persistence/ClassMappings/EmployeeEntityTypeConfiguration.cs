@@ -11,7 +11,7 @@ public class EmployeeEntityTypeConfiguration : IEntityTypeConfiguration<Employee
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.FullName)
-            .HasMaxLength(100);
+            .HasMaxLength(EmployeeConstants.EmployeeFullNameMaxLength);
 
         builder.Property(x => x.IsMarried);
 
@@ -19,7 +19,7 @@ public class EmployeeEntityTypeConfiguration : IEntityTypeConfiguration<Employee
             .HasPrecision(10, 2);
 
         builder.Property(x => x.DNI)
-            .HasMaxLength(10);
+            .HasMaxLength(EmployeeConstants.EmployeeDniMaxLength);
 
         builder.Property(x => x.Age);
     }

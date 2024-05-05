@@ -45,11 +45,11 @@ public class EmployeeRepository : IEmployeeRepository
         {
             var employee = await this.dbContext.Employees.FirstAsync(x => x.Id == id);
 
-            employee.FullName = newEmployee.FullName;
-            employee.Age = newEmployee.Age;
-            employee.Salary = newEmployee.Salary;
-            employee.DNI = newEmployee.DNI;
-            employee.IsMarried = newEmployee.IsMarried;
+            employee.SetFullName(newEmployee.FullName);
+            employee.SetAge(newEmployee.Age);
+            employee.SetSalary(newEmployee.Salary);
+            employee.SetDni(newEmployee.DNI);
+            employee.SetIsMarried(newEmployee.IsMarried);
 
             this.dbContext.Update(employee);
             await this.SaveChangesAsync();

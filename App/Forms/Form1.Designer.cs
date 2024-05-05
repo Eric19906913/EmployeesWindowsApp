@@ -116,6 +116,7 @@
             btnAddEmployee.TabIndex = 1;
             btnAddEmployee.Text = "Agregar";
             btnAddEmployee.UseVisualStyleBackColor = true;
+            btnAddEmployee.Click += btnAddEmployee_Click;
             // 
             // btnEditEmployee
             // 
