@@ -34,15 +34,14 @@ public static class HostExtensions
                 return;
             }
 
-            await repository.CreateEmployeeAsync(
-                new Employee()
-                {
-                    FullName = "Maximo",
-                    Age = 28,
-                    DNI = "1231233",
-                    IsMarried = true,
-                    Salary = 12,
-                });
+            var employeeToSeed = new Employee();
+            employeeToSeed.SetSalary(20000);
+            employeeToSeed.SetAge(20);
+            employeeToSeed.SetFullName("Test employee");
+            employeeToSeed.SetDni("2344544");
+            employeeToSeed.SetIsMarried(false);
+
+            await repository.CreateEmployeeAsync(employeeToSeed);
         }
     }
 }

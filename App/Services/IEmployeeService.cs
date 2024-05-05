@@ -5,4 +5,6 @@ public interface IEmployeeService
     public Task<IEnumerable<EmployeeDto>> GetAllEmployeesAsync();
 
     public Task DeleteEmployee(int id);
+
+    public Task CreateEmployeeAsync(EmployeeDto employee);
 }

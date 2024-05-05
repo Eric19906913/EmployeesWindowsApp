@@ -1,4 +1,5 @@
-﻿using App.Persistence;
+﻿using App.Domain;
+using App.Persistence;
 using AutoMapper;
 using TPFinalHaasEric.Services;
 
@@ -15,6 +16,33 @@ public class EmployeeService : IEmployeeService
     {
         this.employeeRepository = employeeRepository;
         this.mapper = mapper;
+    }
+
+    public async Task CreateEmployeeAsync(EmployeeDto employee)
+    {
+        try
+        {
+            var newEmployee = new Employee();
+            newEmployee.SetFullName(employee.FullName);
+            newEmployee.SetIsMarried(employee.IsMarried);
+            newEmployee.SetSalary(employee.Salary);
+            newEmployee.SetDni(employee.DNI);
+            newEmployee.SetAge(employee.Age);
+
+            await this.employeeRepository.CreateEmployeeAsync(newEmployee);
+        }
+        catch (ArgumentNullException)
+        {
+            throw;
+        }
+        catch (InvalidOperationException)
+        {
+            throw;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
     }
 
     public async Task DeleteEmployee(int id)
