@@ -40,6 +40,7 @@
             btnUserAccept = new Button();
             btnUserCancel = new Button();
             comboEmployeeIsMarried = new ComboBox();
+            txtEmployeeId = new TextBox();
             SuspendLayout();
             // 
             // txtEmployeeFullName
@@ -152,11 +153,20 @@
             comboEmployeeIsMarried.Size = new Size(195, 23);
             comboEmployeeIsMarried.TabIndex = 12;
             // 
+            // txtEmployeeId
+            // 
+            txtEmployeeId.Location = new Point(172, 13);
+            txtEmployeeId.Name = "txtEmployeeId";
+            txtEmployeeId.Size = new Size(100, 23);
+            txtEmployeeId.TabIndex = 13;
+            txtEmployeeId.Visible = false;
+            // 
             // UserDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(482, 391);
+            Controls.Add(txtEmployeeId);
             Controls.Add(comboEmployeeIsMarried);
             Controls.Add(btnUserCancel);
             Controls.Add(btnUserAccept);
@@ -178,10 +188,12 @@
 
         #endregion
 
-        private TextBox txtEmployeeFullName;
-        private TextBox txtEmployeeDNI;
-        private TextBox txtEmployeeAge;
-        private TextBox txtEmployeeSalary;
+        public TextBox txtEmployeeFullName;
+        public TextBox txtEmployeeDNI;
+        public TextBox txtEmployeeAge;
+        public TextBox txtEmployeeSalary;
+        public TextBox txtEmployeeId;
+        public ComboBox comboEmployeeIsMarried;
         private Label label1;
         private Label label2;
         private Label label3;
@@ -189,6 +201,5 @@
         private Label label5;
         private Button btnUserAccept;
         private Button btnUserCancel;
-        private ComboBox comboEmployeeIsMarried;
     }
 }

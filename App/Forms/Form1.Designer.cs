@@ -126,6 +126,7 @@
             btnEditEmployee.TabIndex = 2;
             btnEditEmployee.Text = "Modificar";
             btnEditEmployee.UseVisualStyleBackColor = true;
+            btnEditEmployee.Click += btnEditEmployee_Click;
             // 
             // btnDeleteEmployee
             // 
