@@ -56,4 +56,31 @@ public class EmployeeService : IEmployeeService
 
         return mapper.Map<IEnumerable<EmployeeDto>>(employees);
     }
+
+    public async Task UpdateEmployeeAsync(EmployeeDto employee)
+    {
+        try
+        {
+            var newEmployee = new Employee();
+            newEmployee.SetFullName(employee.FullName);
+            newEmployee.SetIsMarried(employee.IsMarried);
+            newEmployee.SetSalary(employee.Salary);
+            newEmployee.SetDni(employee.DNI);
+            newEmployee.SetAge(employee.Age);
+
+            await this.employeeRepository.UpdateEmployeeAsync(employee.Id, newEmployee);
+        }
+        catch (ArgumentNullException)
+        {
+            throw;
+        }
+        catch (InvalidOperationException)
+        {
+            throw;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
 }

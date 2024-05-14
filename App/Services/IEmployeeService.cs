@@ -7,4 +7,6 @@ public interface IEmployeeService
     public Task DeleteEmployee(int id);
 
     public Task CreateEmployeeAsync(EmployeeDto employee);
+
+    public Task UpdateEmployeeAsync(EmployeeDto employee);
 }
